@@ -65,4 +65,61 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Initial check for elements in view
     animateOnScroll();
+
+    // News embed modal handling
+    const body = document.body;
+    // create modal element
+    const modal = document.createElement('div');
+    modal.className = 'embed-modal';
+    modal.innerHTML = `
+        <div class="embed-box">
+            <div class="embed-header">
+                <div class="embed-title">Preview</div>
+                <div>
+                    <a class="embed-open" href="#" target="_blank" rel="noopener" style="margin-right:12px; color:#2563eb; text-decoration:none;">Open</a>
+                    <button class="embed-close" aria-label="Close preview">✕</button>
+                </div>
+            </div>
+            <iframe sandbox="allow-scripts allow-same-origin allow-forms" src="about:blank"></iframe>
+        </div>
+    `;
+    body.appendChild(modal);
+
+    const iframe = modal.querySelector('iframe');
+    const embedOpen = modal.querySelector('.embed-open');
+    const closeBtn = modal.querySelector('.embed-close');
+
+    function openEmbed(url, sourceUrl, title) {
+        // Use a simple embed transformer for Twitter via twitframe when needed
+        let embedSrc = url || sourceUrl;
+        // set frame src and open modal
+        iframe.src = embedSrc;
+        embedOpen.href = sourceUrl || url;
+        modal.classList.add('open');
+        // update title
+        const titleEl = modal.querySelector('.embed-title');
+        if (title) titleEl.textContent = title;
+    }
+
+    function closeEmbed() {
+        modal.classList.remove('open');
+        // reset iframe src to free resources
+        iframe.src = 'about:blank';
+    }
+
+    // open when clicking view buttons
+    document.querySelectorAll('.news-card .news-view').forEach(btn => {
+        btn.addEventListener('click', function () {
+            const card = this.closest('.news-card');
+            if (!card) return;
+            const embedUrl = card.dataset.embedUrl;
+            const sourceUrl = card.dataset.sourceUrl;
+            const title = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : 'Preview';
+            openEmbed(embedUrl, sourceUrl, title);
+        });
+    });
+
+    // close modal
+    closeBtn.addEventListener('click', closeEmbed);
+    modal.addEventListener('click', function(e){ if (e.target === modal) closeEmbed(); });
 });

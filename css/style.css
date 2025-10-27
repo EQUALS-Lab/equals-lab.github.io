@@ -70,18 +70,36 @@ main {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.9), rgba(44, 62, 80, 0.9)),
-                url('../assets/hero-bg.jpg');
+    /* adjust overlay: slightly darker to reduce banner brightness while keeping text readable */
+    background: linear-gradient(rgba(12, 22, 38, 0.45), rgba(12, 22, 38, 0.22)), url('../assets/banner3.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    background-blend-mode: overlay;
     color: var(--white);
     padding: 4rem 2rem;
     text-align: center;
+    min-height: 360px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+    text-shadow: 0 6px 22px rgba(0,0,0,0.45);
+    position: relative;
+    z-index: 2;
+}
+
+.hero::before {
+    /* extra overlay to fade the banner a bit more */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.30);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content h1 {
@@ -92,6 +110,108 @@ main {
 /* Sections */
 section {
     padding: 4rem 2rem;
+}
+
+/* News cards and modal */
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    max-width: 1200px;
+    margin: 0 auto 1rem;
+}
+
+.news-card {
+    background: var(--white);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 14px rgba(11,22,40,0.06);
+}
+
+.news-card h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.news-actions {
+    margin-top: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.news-view {
+    background: var(--secondary-color);
+    color: var(--white);
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.news-open {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.news-note {
+    max-width: 1200px;
+    margin: 0.75rem auto 0;
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+/* Modal preview overlay for embedded content */
+.embed-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2,6,23,0.6);
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.embed-modal.open {
+    display: flex;
+}
+
+.embed-modal .embed-box {
+    width: 100%;
+    max-width: 1000px;
+    background: var(--white);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(2,6,23,0.4);
+}
+
+.embed-modal iframe {
+    width: 100%;
+    height: 640px;
+    border: 0;
+}
+
+.embed-modal .embed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: #fafafa;
+    border-bottom: 1px solid #eee;
+}
+
+.embed-modal .embed-header .embed-title { font-weight: 600; }
+.embed-modal .embed-close {
+    background: transparent;
+    border: 0;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .embed-modal iframe { height: 420px; }
 }
 
 section h2 {
@@ -386,4 +506,60 @@ footer {
     .director-image img {
         margin: 0 auto;
     }
+}
+
+/* Support / Sponsors section */
+.support {
+    background: linear-gradient(180deg, #ffffff, #f7f9fc);
+    padding: 2.5rem 2rem;
+}
+
+.support-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.support-logo img {
+    width: 140px;
+    height: auto;
+    display: block;
+}
+
+.support-info h2 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color);
+}
+
+.support-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    background: var(--secondary-color);
+    color: #fff;
+    padding: 0.45rem 0.9rem;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+@media (max-width: 700px) {
+    .support-inner { grid-template-columns: 1fr; text-align: center; }
+    .support-logo img { margin: 0 auto; }
+}
+
+/* Logos-only variant */
+.support.logos-only .support-inner {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+    align-items: center;
+    justify-items: center;
+    max-width: 400px;
+}
+
+.support.logos-only .support-logo img {
+    width: 140px;
+    height: auto;
+    display: block;
 }
