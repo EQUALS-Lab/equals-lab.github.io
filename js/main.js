@@ -122,4 +122,16 @@ document.addEventListener('DOMContentLoaded', function() {
     // close modal
     closeBtn.addEventListener('click', closeEmbed);
     modal.addEventListener('click', function(e){ if (e.target === modal) closeEmbed(); });
+
+    // Shrink header on scroll
+    const header = document.querySelector('header');
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 40) {
+            header.classList.add('header-small');
+        } else {
+            header.classList.remove('header-small');
+        }
+        lastScrollY = window.scrollY;
+    });
 });

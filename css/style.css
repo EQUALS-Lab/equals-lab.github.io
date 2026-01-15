@@ -28,20 +28,44 @@ header {
     width: 100%;
     top: 0;
     z-index: 1000;
+    min-height: 6px;
+    transition: min-height 0.25s cubic-bezier(.4,0,.2,1), box-shadow 0.25s;
+}
+
+header.header-small {
+    min-height: 28px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 5%;
+    padding: 0;
     max-width: 1200px;
     margin: 0 auto;
+    transition: padding 0.25s cubic-bezier(.4,0,.2,1), height 0.25s;
+}
+
+header.header-small nav {
+    padding: 0.1rem 2%;
 }
 
 .logo h1 {
-    font-size: 1.5rem;
-    color: var(--primary-color);
+    font-size: 0.2rem;
+    margin-left: 0.02rem;
+    transition: font-size 0.25s;
+}
+
+.logo-img {
+    max-width: 4px;
+    height: 4px;
+    transition: max-width 0.25s, height 0.25s;
+}
+
+header.header-small .logo-img {
+    max-width: 18px;
+    height: 18px;
 }
 
 .nav-links {
@@ -54,12 +78,21 @@ nav {
     color: var(--text-color);
     padding: 0.5rem 1rem;
     margin: 0 0.5rem;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, background 0.3s, box-shadow 0.3s;
+    border-radius: 20px;
+    display: inline-block;
 }
 
 .nav-links li a:hover,
 .nav-links li a.active {
-    color: var(--secondary-color);
+    color: #fff;
+    background: var(--secondary-color);
+    box-shadow: 0 2px 8px rgba(52,152,219,0.12);
+    border-radius: 20px;
+}
+
+.nav-links.active {
+    display: flex;
 }
 
 /* Main Content */
@@ -189,7 +222,9 @@ section {
 
 .embed-modal iframe {
     width: 100%;
-    height: 640px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    min-height: 240px;
     border: 0;
 }
 
@@ -249,6 +284,18 @@ section h2 {
 }
 
 /* Team Page */
+
+/* Example selector for team member image centering */
+/* Center team member images in their box */
+.team-member img,
+.member img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 120px;
+    border-radius: 50%;
+}
+
 .member-image img {
     width: 200px;
     height: 200px;
@@ -409,6 +456,17 @@ footer {
 }
 
 @media (max-width: 768px) {
+    nav {
+        padding: 0;
+    }
+    .logo-img {
+        max-width: 14px;
+        height: 14px;
+    }
+    .logo h1 {
+        font-size: 0.6rem;
+    }
+
     .nav-links {
         display: none;
         position: absolute;
@@ -447,8 +505,8 @@ footer {
 }
 
 .logo-img {
-    width: 48px;
-    height: 48px;
+    width: 36px; /* smaller logo for compact header */
+    height: 36px;
     object-fit: contain;
 }
 
@@ -562,4 +620,125 @@ footer {
     width: 140px;
     height: auto;
     display: block;
+}
+
+/* Responsive Enhancements */
+/* Make common images flexible and preserve aspect ratio */
+.logo-img,
+.support-logo img,
+.director-image img,
+.member-image img {
+    display: block;
+    width: 100%;
+    max-width: 220px; /* default max, can be overridden by breakpoints */
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Slightly smaller logo on narrow screens */
+.logo h1 {
+    font-size: 1.5rem;
+}
+
+/* Hero adjustments for various devices */
+.hero {
+    padding: 4rem 2rem;
+    min-height: 60vh; /* use viewport units for better scaling */
+}
+
+.hero-content {
+    padding: 0 1rem;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem; /* base */
+}
+
+/* Responsive embed modal: maintain 16:9 aspect ratio */
+.embed-modal .embed-box {
+    width: 100%;
+    max-width: 1000px;
+    padding: 0;
+}
+
+.embed-modal iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    min-height: 240px;
+}
+
+/* Improve spacing for sections on small devices */
+section {
+    padding: 3rem 1rem;
+}
+
+/* Breakpoints */
+@media (max-width: 1200px) {
+    nav { padding: 1rem 4%; }
+    .hero { padding: 3rem 1.5rem; }
+    .highlight-grid,
+    .member-grid,
+    .project-grid { gap: 1.5rem; }
+}
+
+@media (max-width: 900px) {
+    .hero-content h1 { font-size: 2rem; }
+    .hero { min-height: 50vh; padding: 2.5rem 1rem; }
+    .logo h1 { font-size: 1.25rem; }
+
+    /* Director layout becomes single column (already handled) but ensure images center */
+    .lab-director .director-inner { grid-template-columns: 1fr; text-align: center; }
+    .lab-director .director-image { margin: 0 auto; }
+
+    /* Make default max for director image slightly smaller on tablets */
+    .director-image img { max-width: 220px; }
+    .member-image img { max-width: 180px; }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 { font-size: 1.6rem; }
+    .hero p { font-size: 0.95rem; }
+    .nav-links li a { padding: 0.75rem 1rem; display: block; }
+
+    /* Contact and support spacing */
+    .contact-content { padding: 1rem; }
+    .support-inner { padding: 1rem; }
+
+    /* Cards and grids tighten up */
+    .highlight-grid,
+    .member-grid,
+    .project-grid,
+    .news-grid { gap: 1rem; }
+
+    /* Footer spacing */
+    footer { padding: 2rem 1rem; }
+
+    /* Smaller director image on phones */
+    .director-image img { max-width: 180px; }
+    .member-image img { max-width: 140px; }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 { font-size: 1.4rem; }
+    .hero { padding: 2rem 0.75rem; }
+    section { padding: 2rem 0.75rem; }
+    .logo h1 { font-size: 1.1rem; }
+}
+
+/* Utility: container padding for consistent gutters */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Center team member images in their card/box */
+.member-card img,
+.member-image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
