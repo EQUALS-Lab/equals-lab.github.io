@@ -150,24 +150,5 @@ document.addEventListener('DOMContentLoaded', function () {
     else header.classList.remove('header-small');
   });
 
-  // -----------------------------
-  // ✅ Simple Announcements (like your screenshot)
-  // -----------------------------
-  const announcements = [
-  { date: "September 2025", text: `A new project on AI-driven wireless systems has officially started.` },
-  { date: "August 2025", text: `The lab welcomed three new graduate students for Fall 2025.` },
-  { date: "July 2025", text: `Our dataset on wireless sensing is now publicly available.` },
-  { date: "June 2025", text: `Lab members participated in the <strong>IEEE INFOCOM 2025</strong> conference.` }
-];
-
-  function renderAnnouncements() {
-    const list = document.querySelector('.announcements-list');
-    if (!list) return;
-
-    list.innerHTML = announcements
-      .map(a => `<li><span class="news-date">${a.date}:</span> ${a.text}</li>`)
-      .join('');
-  }
-
-  renderAnnouncements();
+  // News/Announcements are now loaded via content-loader.js
 });

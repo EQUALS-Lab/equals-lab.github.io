@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUALS - Visitors</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html" aria-label="EQUALS home">
+                    <img src="assets/logo.png" alt="EQUALS logo" class="logo-img">
+                    <!-- <h1>EQUALS</h1> -->
+                </a>
+            </div>
+            <ul class="nav-links">
+            <li><a href="index.html" data-nav="home">Home</a></li>
+            <li><a href="awards.html" data-nav="awards">Awards</a></li>
+            <li><a href="gallery.html" data-nav="gallery">Gallery</a></li>
+            <li class="dropdown">
+                <a href="phd-students.html" data-nav="people" class="active">People <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="lab-director.html" data-nav="lab-director">Lab Director</a></li>
+                <li><a href="phd-students.html#phd-students">PhD Students</a></li>
+                <li><a href="ms-students.html#ms-students">MS Students</a></li>
+                <li><a href="visitors.html#visitors">Visitors</a></li>
+                </ul>
+            </li>
+
+            <li><a href="publication.html" data-nav="publication">Publication</a></li>
+            <li><a href="outreach.html" data-nav="outreach">Outreach</a></li>
+
+            <li class="dropdown">
+                <a href="downloads.html" data-nav="downloads">Downloads <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="downloads.html#source-code">Source code</a></li>
+                <li><a href="downloads.html#datasets">Datasets</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="team-header" style="text-align: center; margin: 50px 0;">
+            <h1>Visitors</h1>
+            <p>Welcome to our visiting researchers, scholars, and collaborators</p>
+        </section>
+
+        <section class="team-members" id="visitors">
+            <h2>Current & Past Visitors</h2>
+            <div class="member-grid">
+                <!-- Content loaded from data/people.json via content-loader.js -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@equals.edu</p>
+                <p>Phone: 662.325.2079</p>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>Computer Science and Engineering</p>
+                <p>Mississippi State University</p>
+                <p>665 George Perry Street, 300 Butler Hall, Box 9637, Mississippi State, MS 39762</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/WIQ-AI"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EQUALS Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/content-loader.js"></script>
+</body>
+</html>

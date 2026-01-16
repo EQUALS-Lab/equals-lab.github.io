@@ -1,0 +1,194 @@
+{
+  "phd": [
+    {
+      "name": "Madan Baduwal",
+      "image": "assets/madanbaduwal.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "computer engineering",
+        "university": "Tribhuvan University, Nepal",
+        "year": "2018"
+      },
+      "master": {
+        "degree": "Master's degree",
+        "university": "Mississippi State University",
+        "year": "2022"
+      },
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication, machine learning, multimodal learning, wireless optimization, and Internet of Things",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Parker Jones",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "electrical engineering",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "master": {
+        "degree": "Master's degree",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "quantum communication networks, wireless communication, machine learning, signal processing, and optimization in wireless networks",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Sam McDevitt",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "computer science",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "master": {
+        "degree": "Master's degree",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication, artificial intelligence, 5G/6G wireless systems, explainable AI, and cyber-physical systems",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Naveen Rawat",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "electrical engineering",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "master": {
+        "degree": "Master's degree",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication networks, cybersecurity, spectrum sharing, smart IoT systems, and applied machine learning in wireless networks",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    }
+  ],
+  "ms": [
+    {
+      "name": "Wilson Patterson",
+      "image": "assets/wilson.jpg",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "[Field]",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication, machine learning, quantum algorithms for wireless optimization, and Internet of Things",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Jahnavi Gutta",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "[Field]",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "She is currently pursuing her Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication networks, artificial intelligence, signal processing, and optimization in wireless systems",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Gavin Seiler",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "[Field]",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication, cybersecurity, spectrum sharing, smart IoT systems, and applied machine learning",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Anthony Thomas",
+      "image": "assets/placeholder.png",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "[Field]",
+        "university": "[University Name]",
+        "year": "[Year]"
+      },
+      "description": "He is currently pursuing his Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
+      "research": "wireless communication, 5G/6G wireless systems, explainable AI, cyber-physical systems, and network optimization",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    }
+  ],
+  "visitors": [
+    {
+      "name": "Robert Pope",
+      "image": "assets/placeholder.png",
+      "period": "[Period]",
+      "title": "[Title]",
+      "institution": "[Institution/University]",
+      "description": "He is visiting the EQUALS Lab to collaborate on research in [Research Area].",
+      "research": "[Research Interests]",
+      "project": "[Project/Collaboration Description]",
+      "links": {
+        "website": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Tetevi Wilson",
+      "image": "assets/placeholder.png",
+      "period": "[Period]",
+      "title": "[Title]",
+      "institution": "[Institution/University]",
+      "description": "[He/She] is visiting the EQUALS Lab to collaborate on research in [Research Area].",
+      "research": "[Research Interests]",
+      "project": "[Project/Collaboration Description]",
+      "links": {
+        "website": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    }
+  ]
+}

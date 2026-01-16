@@ -1,0 +1,80 @@
+{
+  "sections": [
+    {
+      "title": "Lab Events & Activities",
+      "icon": "fas fa-calendar-alt",
+      "color": "#3498db",
+      "items": [
+        {
+          "title": "Lab Meeting",
+          "description": "Team discussion on research progress",
+          "image": "assets/banner3.jpg"
+        },
+        {
+          "title": "Research Presentation",
+          "description": "Presenting latest findings",
+          "image": "assets/banner2.jpg"
+        },
+        {
+          "title": "Conference Participation",
+          "description": "Attending IEEE conferences",
+          "image": "assets/banner.png"
+        },
+        {
+          "title": "NSF ExLENT Award",
+          "description": "Celebrating NSF ExLENT award",
+          "image": "assets/nsf-ExLENET.jpeg"
+        }
+      ]
+    },
+    {
+      "title": "Lab Members",
+      "icon": "fas fa-users",
+      "color": "#9b59b6",
+      "items": [
+        {
+          "title": "Lab Director",
+          "description": "Prof. Vini Chaudhary",
+          "image": "assets/vini.jpg"
+        },
+        {
+          "title": "PhD Student",
+          "description": "Madan Baduwal",
+          "image": "assets/madanbaduwal.png"
+        },
+        {
+          "title": "MS Student",
+          "description": "Wilson Patterson",
+          "image": "assets/wilson.jpg"
+        },
+        {
+          "title": "Collaborator",
+          "description": "Research collaborator",
+          "image": "assets/nishapilai.jpg"
+        }
+      ]
+    },
+    {
+      "title": "Lab Facilities & Infrastructure",
+      "icon": "fas fa-building",
+      "color": "#e74c3c",
+      "items": [
+        {
+          "title": "Mississippi State University",
+          "description": "Our home institution",
+          "image": "assets/msu.png"
+        },
+        {
+          "title": "Research Lab",
+          "description": "EQUALS Lab workspace",
+          "image": "assets/banner2.jpg"
+        },
+        {
+          "title": "NSF Support",
+          "description": "NSF funding acknowledgment",
+          "image": "assets/ns2.jpg"
+        }
+      ]
+    }
+  ]
+}

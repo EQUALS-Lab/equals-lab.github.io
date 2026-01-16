@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EQUALS Lab - Awards</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Awards page specific styles */
+        .awards-hero {
+            background: linear-gradient(180deg, #ffffff, #fbfbfd);
+            padding: 2.5rem 1rem;
+            border-bottom: 1px solid rgba(44,62,80,0.06);
+            text-align: center;
+        }
+        .awards-hero h1 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
+        }
+        .awards-hero p {
+            color: #6b7c93;
+            font-size: 1.1rem;
+        }
+
+        .awards-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1rem;
+        }
+
+        .awards-section {
+            margin-bottom: 3rem;
+        }
+
+        .awards-section-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #0b4b8a;
+            margin: 2rem 0 1.5rem 0;
+            text-align: left;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(11, 75, 138, 0.2);
+        }
+
+        .award-card {
+            background: #ffffff;
+            border: 1px solid rgba(44,62,80,0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 14px rgba(11,22,40,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .award-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(11,22,40,0.1);
+        }
+
+        .award-year {
+            display: inline-block;
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .award-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+        }
+
+        .award-description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-top: 0.5rem;
+        }
+
+        .award-link {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .award-link:hover {
+            text-decoration: underline;
+        }
+
+        .awards-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .awards-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--secondary-color), rgba(52,152,219,0.3));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -0.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            border: 3px solid #fff;
+            box-shadow: 0 0 0 2px var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .awards-hero h1 {
+                font-size: 2rem;
+            }
+            .award-card {
+                padding: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html" aria-label="EQUALS Lab home">
+                    <img src="assets/logo.png" alt="EQUALS Lab logo" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+            <li><a href="index.html" data-nav="home">Home</a></li>
+            <li><a href="awards.html" data-nav="awards" class="active">Awards</a></li>
+            <li><a href="gallery.html" data-nav="gallery">Gallery</a></li>
+            <li class="dropdown">
+                <a href="phd-students.html" data-nav="people">People <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="lab-director.html" data-nav="lab-director">Lab Director</a></li>
+                <li><a href="phd-students.html#phd-students">PhD Students</a></li>
+                <li><a href="ms-students.html#ms-students">MS Students</a></li>
+                <li><a href="visitors.html#visitors">Visitors</a></li>
+                </ul>
+            </li>
+
+            <li><a href="publication.html" data-nav="publication">Publication</a></li>
+            <li><a href="outreach.html" data-nav="outreach">Outreach</a></li>
+
+            <li class="dropdown">
+                <a href="downloads.html" data-nav="downloads">Downloads <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="downloads.html#source-code">Source code</a></li>
+                <li><a href="downloads.html#datasets">Datasets</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="awards-hero">
+            <div class="container">
+                <h1>Awards & Honors</h1>
+                <p>Recognizing excellence in research, service, and innovation</p>
+            </div>
+        </section>
+
+        <div class="awards-container">
+            <!-- Content loaded from data/awards.json via content-loader.js -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@equals.edu</p>
+                <p>Phone: 662.325.2079</p>
+            </div>
+            <div class="footer-section">
+                <h3>Location</h3>
+                <p>Computer Science and Engineering</p>
+                <p>Mississippi State University</p>
+                <p>665 George Perry Street, 300 Butler Hall, Box 9637, Mississippi State, MS 39762</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/WIQ-AI"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 EQUALS Lab. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/content-loader.js"></script>
+</body>
+</html>

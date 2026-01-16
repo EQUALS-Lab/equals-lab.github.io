@@ -1,0 +1,97 @@
+{
+  "awards": [
+    {
+      "year": 2025,
+      "title": "NVIDIA Academic Grant for Higher Education Research (HER) Award",
+      "description": "Awarded to support cutting-edge research in intelligent computing systems and wireless communications."
+    },
+    {
+      "year": 2025,
+      "title": "Distinguished Member of the 2026 IEEE INFOCOM Technical Program Committee",
+      "description": "Recognized as a distinguished member for contributions to the IEEE INFOCOM conference technical program."
+    },
+    {
+      "year": 2024,
+      "title": "N2Women Rising Stars",
+      "description": "Selected as one of the 10 N2Women Rising Stars globally, recognizing outstanding contributions to networking and communications research.",
+      "link": "#"
+    },
+    {
+      "year": 2024,
+      "title": "Rising Star in Service",
+      "description": "Recognized as a Rising Star in Service from the UTA CSE department for exceptional contributions to the academic community."
+    }
+  ],
+  "grants": [
+    {
+      "year": 2024,
+      "title": "NSF Experimental Learning for Emerging and Novel Technologies (ExLENT) Award",
+      "description": "Collaborative grant awarded to Dr. Chaudhary, Dr. Gudla, and Dr. Perkins for their innovative proposal on experimental learning in emerging technologies."
+    }
+  ],
+  "editorial": [
+    {
+      "year": 2025,
+      "title": "Editor - IEEE Transactions on Mobile Computing",
+      "description": "Serving as Editor for IEEE Transactions on Mobile Computing (Impact Factor: 9.2), one of the premier journals in mobile computing and wireless communications."
+    },
+    {
+      "year": 2025,
+      "title": "Co Editor-in-Chief - Elsevier Software Impacts Journal",
+      "description": "Appointed as Co Editor-in-Chief for Elsevier Software Impacts journal (Impact Factor: 1.2), focusing on software research with real-world impact."
+    },
+    {
+      "year": 2022,
+      "title": "Area Editor - Elsevier Computer Communications Journal",
+      "description": "Serving as Area Editor for Elsevier Computer Communications journal (Impact Factor: 4.5), covering advances in computer networking and communications."
+    },
+    {
+      "year": 2024,
+      "title": "Editor - Elsevier Ad Hoc Networks Journal",
+      "description": "Appointed as Editor for Elsevier Ad Hoc Networks journal (Impact Factor: 4.4), focusing on wireless ad hoc and sensor networks."
+    },
+    {
+      "year": "2021-2024",
+      "title": "Associate Editor - Elsevier Software Impacts Journal",
+      "description": "Served as Associate Editor for Elsevier Software Impacts journal, contributing to the publication of impactful software research."
+    }
+  ],
+  "service": [
+    {
+      "year": 2026,
+      "title": "Technical Program Co-chair - IEEE MILCOM",
+      "description": "Serving as Technical Program Co-chair for the IEEE Military Communications Conference (MILCOM), one of the premier conferences in military communications."
+    },
+    {
+      "year": 2025,
+      "title": "Workshop Organizer - IEEE INFOCOM",
+      "description": "Organizing workshops for IEEE INFOCOM, the flagship conference of the IEEE Communications Society."
+    },
+    {
+      "year": 2024,
+      "title": "Session Chair - IEEE ICC",
+      "description": "Chaired sessions at IEEE International Conference on Communications (ICC), facilitating technical discussions and presentations."
+    },
+    {
+      "year": 2025,
+      "title": "Reviewer - National Science Foundation (NSF) CISE Program",
+      "description": "Serving as a reviewer for the National Science Foundation Computer and Information Science and Engineering (CISE) program, evaluating research proposals."
+    },
+    {
+      "year": 2024,
+      "title": "Reviewer - National Science Foundation (NSF) Core Program",
+      "description": "Reviewed proposals for the National Science Foundation Core program, contributing to the evaluation of fundamental research."
+    },
+    {
+      "year": 2025,
+      "title": "Panelist - IEEE CCNC",
+      "description": "Panelist on \"Integrated Sensing and Communications (ISAC): Pioneering the Future of 6G and IoT\" at IEEE CCNC (January 2025).",
+      "link": "#"
+    },
+    {
+      "year": 2024,
+      "title": "Panelist - OurCS@DFW",
+      "description": "Panelist on \"The Graduate School Experience\" at the OurCS@DFW event (February 2024), sharing insights with aspiring researchers."
+    }
+  ]
+}

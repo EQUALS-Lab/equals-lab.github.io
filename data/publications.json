@@ -1,0 +1,186 @@
+{
+  "journals": [
+    {
+      "year": 2023,
+      "title": "Detection of co-existing RF signals in CBRS using ML: Dataset and API-based collection testbed",
+      "authors": "C Tassie, A Gaber, V Chaudhary, N Soltani, M Belgiovine, M Loehning, ...",
+      "venue": "IEEE Communications Magazine 61 (9), 82-88, 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2021,
+      "title": "Energy-efficient temporal sensing: An age-of-sample-based approach",
+      "authors": "V Gupta, S De",
+      "venue": "IEEE Internet of Things Journal 9 (3), 1806-1817, 2021",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2021,
+      "title": "An Energy-efficient Edge Computing Framework for Decentralized Sensing in WSN-assisted IoT",
+      "authors": "V Gupta, S De",
+      "venue": "IEEE Transactions on Wireless Communications, 2021",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2020,
+      "title": "Collaborative multi-sensing in energy harvesting wireless sensor networks",
+      "authors": "V Gupta, S De",
+      "venue": "IEEE Transactions on Signal and Information Processing over Networks 6, 426-441, 2020",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2020,
+      "title": "Green sensing and communication: A step towards sustainable IoT systems",
+      "authors": "V Gupta, S Tripathi, S De",
+      "venue": "Journal of the Indian Institute of Science 100 (2), 383-398, 2020",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2018,
+      "title": "Sparse Bayesian learning-based target imaging and parameter estimation for monostatic MIMO radar systems",
+      "authors": "A Mishra, V Gupta, S Dwivedi, AK Jagannatham, PK Varshney",
+      "venue": "IEEE Access 6, 68545-68559, 2018",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2018,
+      "title": "SBL-based adaptive sensing framework for WSN-assisted IoT applications",
+      "authors": "V Gupta, S De",
+      "venue": "IEEE Internet of Things Journal 5 (6), 4598-4612, 2018",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    }
+  ],
+  "conferences": [
+    {
+      "year": 2026,
+      "title": "O-DSS: An Open Dynamic Spectrum Sharing Framework for Cellular-Radar Coexistence in Mid-band Frequencies",
+      "authors": "A Chiejina, D Muruganandham, V Chaudhary, K Chowdhury, VK Shah",
+      "venue": "arXiv preprint arXiv:2601.02571, 2026",
+      "links": {
+        "paper": "#",
+        "arxiv": "#"
+      }
+    },
+    {
+      "year": 2025,
+      "title": "REMARKABLE: RIS-Enabled Mobile Beamforming through Kernalized Bandit Learning",
+      "authors": "K Alemdar, A Ghosh, V Chaudhary, N Shroff, K Chowdhury",
+      "venue": "Proceedings of the Twenty-sixth International Symposium on Theory, 2025",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2025,
+      "title": "Towards Secure MLOps: Surveying Attacks, Mitigation Strategies, and Research Challenges",
+      "authors": "R Patel, H Tripathi, J Stone, NA Golilarz, S Mittal, S Rahimi, V Chaudhary",
+      "venue": "arXiv preprint arXiv:2506.02032, 2025",
+      "links": {
+        "paper": "#",
+        "arxiv": "#"
+      }
+    },
+    {
+      "year": 2023,
+      "title": "Learning-based Route Selection in Noisy Quantum Communication Networks",
+      "authors": "V Chaudhary, K Li, K Chowdhury",
+      "venue": "IEEE International Conference on Communications (ICC) 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2023,
+      "title": "BiP: Bit-Phase-Flip Error Mitigation in Quantum Communications",
+      "authors": "K Li, V Chaudhary, K Chowdhury",
+      "venue": "IEEE International Conference on Communications (ICC) 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2023,
+      "title": "ICARUS: Learning on IQ and Cycle Frequencies for Detecting Anomalous RF Underlay Signals",
+      "authors": "D Roy, V Chaudhary, C Tassie, C Spooner, K Chowdhury",
+      "venue": "IEEE International Conference on Computer Communications (INFOCOM) 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2023,
+      "title": "RIS-STAR: RIS-based Spatio-Temporal Channel Hardening for Single-Antenna Receivers",
+      "authors": "SG Sanchez, K Alemdar, V Chaudhary, K Chowdhury",
+      "venue": "IEEE International Conference on Computer Communications (INFOCOM) 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2023,
+      "title": "Q-FiRM: Fidelity-based Rate Maximizing Routes for Quantum Networks",
+      "authors": "K Li*, V Chaudhary*, S Garcia*, KR Chowdhury",
+      "venue": "IEEE Consumer Communications and Networking Conference (CCNC) 2023",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2022,
+      "title": "Finding Waldo in the CBRS Band: Signal Detection and Localization in the 3.5 GHz Spectrum",
+      "authors": "N Soltani*, V Chaudhary*, D Roy, K Chowdhury",
+      "venue": "IEEE Global Communications Conference (GLOBECOM) 2022",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2019,
+      "title": "Adaptive multi-sensing in EH-WSN for smart environment",
+      "authors": "V Gupta, S De",
+      "venue": "2019 IEEE Global Communications Conference (GLOBECOM), 1-6, 2019",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    },
+    {
+      "year": 2016,
+      "title": "SBL-based joint target imaging and Doppler frequency estimation in monostatic MIMO radar systems",
+      "authors": "V Gupta, A Mishra, S Dwivedi, AK Jagannatham",
+      "venue": "2016 IEEE International Conference on Acoustics, Speech and Signal Processing, 2016",
+      "links": {
+        "paper": "#",
+        "arxiv": null
+      }
+    }
+  ]
+}
