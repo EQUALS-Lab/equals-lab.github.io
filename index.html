@@ -18,10 +18,35 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="team.html">Team</a></li>
-                <!-- <li><a href="research.html">Research</a></li>
-                <li><a href="datasets.html">Datasets</a></li> -->
-                <li><a href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a href="#">About Us <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#awards">Awards</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">People <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#lab-director">Lab Director</a></li>
+                        <li><a href="#faculties">Faculties</a></li>
+                        <li><a href="#postdocs">Postdocs</a></li>
+                        <li><a href="#phd-students">PhD Students</a></li>
+                        <li><a href="#ms-students">MS Students</a></li>
+                        <li><a href="#alumni">Alumni</a></li>
+                        <li><a href="#visitors">Visitors</a></li>
+                    </ul>
+                </li>
+                <li><a href="#publication">Publication</a></li>
+                <li><a href="#outrich">Outrich</a></li>
+                <li class="dropdown">
+                    <a href="#">Downloads <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#source-code">Source code</a></li>
+                        <li><a href="#datasets">Datasets</a></li>
+                    </ul>
+                </li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>
@@ -63,6 +88,16 @@
         </section>
 
 
+        <section class="news-slider-section">
+            <h2>Latest News</h2>
+            <div class="news-slider-container">
+                <button class="news-arrow news-arrow-left" aria-label="Previous news">&#8592;</button>
+                <div class="news-slider"><!-- News cards will be rendered here by JS --></div>
+                <button class="news-arrow news-arrow-right" aria-label="Next news">&#8594;</button>
+            </div>
+        </section>
+
+
         <section class="highlights">
             <h2>Research Highlights</h2>
             <div class="highlight-grid container">
@@ -84,39 +119,9 @@
             </div>
         </section>
 
-        <section class="news">
-        <h2>Latest News</h2>
-        <div class="news-grid container">
-            <article class="news-card">
-            <h3>Tweet: New lab result</h3>
-            <p>We announced our CBRS dataset expansion and baseline benchmarks.</p>
-            <a class="news-open" href="https://twitter.com/Twitter/status/1456349950000000000" target="_blank" rel="noopener">
-                Open on X (Twitter) →
-            </a>
-            </article>
-
-            <article class="news-card">
-            <h3>LinkedIn: Department news</h3>
-            <p>NSF award highlight and WIQ Lab kickoff.</p>
-            <a class="news-open" href="https://www.linkedin.com/posts/..." target="_blank" rel="noopener">
-                Open on LinkedIn →
-            </a>
-            </article>
-
-            <article class="news-card">
-            <h3>University News: Research Breakthrough</h3>
-            <p>MSU CSE feature on semantic/quantum comms research.</p>
-            <a class="news-open" href="https://example.edu/news/2025/new-research-breakthrough" target="_blank" rel="noopener">
-                Read on msstate.edu →
-            </a>
-            </article>
-        </div>
-        </section>
-
-
         <!-- Support / Sponsors - logos only -->
         <section class="support logos-only">
-            <h2>Support</h2>
+            <h2>We sincerely acknowledge the generous support of the following funding agencies and sponsors:</h2>
             <div class="support-inner logos-grid container">
                 <div class="support-logo">
                     <img src="assets/ns2.jpg" alt="ns2">
@@ -146,7 +151,7 @@
                 <div class="social-links">
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/WIQ-AI"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/Equals-lab"><i class="fab fa-github"></i></a>
                 </div>
             </div>
         </div>

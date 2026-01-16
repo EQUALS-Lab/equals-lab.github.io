@@ -134,4 +134,83 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         lastScrollY = window.scrollY;
     });
+
+    // Dynamically render latest news from latest-news.json
+    async function renderLatestNews() {
+        const slider = document.querySelector('.news-slider');
+        if (!slider) return;
+        try {
+            const res = await fetch('latest-news.json');
+            if (!res.ok) throw new Error('Failed to load news');
+            const newsList = await res.json();
+            slider.innerHTML = '';
+            // Determine visibleSlides for current screen
+            let visibleSlides = 3;
+            if (window.innerWidth <= 900) visibleSlides = 1;
+            // Render each news as a slide (not grouped)
+            newsList.forEach(news => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'news-slide-single';
+                slideDiv.style.flex = '0 0 ' + (100 / visibleSlides) + '%';
+                slideDiv.style.maxWidth = (100 / visibleSlides) + '%';
+                slideDiv.innerHTML = `
+                    <div class="news-card">
+                        <img class="news-teaser" src="${news["Teaser Image"]}" alt="${news["Title"]} teaser">
+                        <h3>${news["Title"]}</h3>
+                        <p>${news["Description"]}</p>
+                        <a class="news-open" href="${news["Link"]}" target="_blank" rel="noopener">Read More →</a>
+                    </div>
+                `;
+                slider.appendChild(slideDiv);
+            });
+            window.initNewsCarousel && window.initNewsCarousel(newsList.length, visibleSlides);
+        } catch (e) {
+            slider.innerHTML = '<div style="padding:2rem;text-align:center;color:#888;">Could not load latest news.</div>';
+        }
+    }
+    window.renderLatestNews = renderLatestNews;
+    window.addEventListener('resize', renderLatestNews);
+    renderLatestNews();
+
+    // Carousel logic for sliding one at a time, always showing 3 (or 1 on mobile), simple and robust
+    window.initNewsCarousel = function(totalSlides, visibleSlides) {
+        const slider = document.querySelector('.news-slider');
+        const slides = slider ? slider.querySelectorAll('.news-slide-single') : [];
+        const leftArrow = document.querySelector('.news-arrow-left');
+        const rightArrow = document.querySelector('.news-arrow-right');
+        let slideIndex = 0;
+        let interval;
+        function showSlide(idx, animate = true) {
+            if (animate) slider.style.transition = 'transform 0.7s cubic-bezier(.4,0,.2,1)';
+            slider.style.transform = `translateX(-${idx * (100 / visibleSlides)}%)`;
+            slideIndex = idx;
+        }
+        function nextSlide() {
+            let nextIdx = slideIndex + 1;
+            if (nextIdx > slides.length - visibleSlides) nextIdx = 0;
+            showSlide(nextIdx);
+        }
+        function prevSlide() {
+            let prevIdx = slideIndex - 1;
+            if (prevIdx < 0) prevIdx = slides.length - visibleSlides;
+            showSlide(prevIdx);
+        }
+        if (slider && slides.length > visibleSlides) {
+            clearInterval(interval);
+            interval = setInterval(nextSlide, 4000);
+            if (leftArrow && rightArrow) {
+                leftArrow.onclick = function() {
+                    prevSlide();
+                    clearInterval(interval);
+                    interval = setInterval(nextSlide, 4000);
+                };
+                rightArrow.onclick = function() {
+                    nextSlide();
+                    clearInterval(interval);
+                    interval = setInterval(nextSlide, 4000);
+                };
+            }
+        }
+        showSlide(slideIndex, false);
+    };
 });
