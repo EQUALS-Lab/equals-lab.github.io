@@ -11,14 +11,45 @@
     <header>
         <nav>
             <div class="logo">
-                <h1>EQUALS</h1>
+                <a href="index.html" aria-label="EQUALS Lab home">
+                    <img src="assets/logo.png" alt="EQUALS Lab logo" class="logo-img">
+                    <!-- <h1>EQUALS Lab</h1> -->
+                </a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="team.html">Team</a></li>
-                <li><a href="research.html">Research</a></li>
-                <li><a href="datasets.html" class="active">Datasets</a></li>
-                <li><a href="contact.html">Contact</a></li>
+            <li><a href="index.html" data-nav="home">Home</a></li>
+<!-- 
+            <li class="dropdown">
+                <a href="index.html#about">About Us <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+                <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+                </ul>
+            </li> -->
+            <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+            <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+            <li class="dropdown">
+                <a href="team.html" data-nav="people">People <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="lab-director.html" data-nav="lab-director">Lab Director</a></li>
+                <li><a href="team.html#phd-students">PhD Students</a></li>
+                <li><a href="team.html#ms-students">MS Students</a></li>
+                <li><a href="team.html#visitors">Visitors</a></li>
+                </ul>
+            </li>
+
+            <li><a href="publication.html" data-nav="publication">Publication</a></li>
+            <li><a href="outreach.html" data-nav="outreach">Outreach</a></li>
+
+            <li class="dropdown">
+                <a href="downloads.html" data-nav="downloads">Downloads <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="downloads.html#source-code">Source code</a></li>
+                <li><a href="downloads.html#datasets" class="active">Datasets</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
             </ul>
             <div class="hamburger">
                 <span></span>

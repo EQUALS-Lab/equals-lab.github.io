@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EQUALS Lab - Publications</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <style>
+    /* ===== Simple publication layout ===== */
+    .pub-container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .pub-row {
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 20px 0;
+      border-top: 1px solid #dcdcdc;
+    }
+
+    .pub-left {
+      flex: 0 0 520px;
+      max-width: 520px;
+    }
+
+    .pub-media {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 4px;
+      border: none;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .pub-right {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pub-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #000;
+      text-decoration: none;
+      line-height: 1.3;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .pub-title:hover { text-decoration: underline; }
+
+    .pub-authors {
+      color: #6a1bb1;
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .pub-venue {
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+
+    .pub-links a {
+      color: #1a0dab;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .pub-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 900px) {
+      .pub-row { flex-direction: column; }
+      .pub-left { max-width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logo.png" class="logo-img">
+      </a>
+    </div>
+    <ul class="nav-links">
+            <li><a href="index.html" data-nav="home">Home</a></li>
+<!-- 
+            <li class="dropdown">
+                <a href="index.html#about">About Us <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+                <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+                </ul>
+            </li> -->
+            <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+            <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+            <li class="dropdown">
+                <a href="team.html" data-nav="people">People <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="lab-director.html" data-nav="lab-director">Lab Director</a></li>
+                <li><a href="team.html#phd-students">PhD Students</a></li>
+                <li><a href="team.html#ms-students">MS Students</a></li>
+                <li><a href="team.html#visitors">Visitors</a></li>
+                </ul>
+            </li>
+
+            <li><a href="publication.html" data-nav="publication" class="active">Publication</a></li>
+            <li><a href="outreach.html" data-nav="outreach">Outreach</a></li>
+
+            <li class="dropdown">
+                <a href="downloads.html" data-nav="downloads">Downloads <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="downloads.html#source-code">Source code</a></li>
+                <li><a href="downloads.html#datasets">Datasets</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
+            </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="pub-container">
+    <h1>Publications</h1>
+
+    <!-- ================= PAPER ================= -->
+    <div class="pub-row" data-media="https://www.youtube.com/watch?v=VIDEO_ID">
+
+      <div class="pub-left"></div>
+
+      <div class="pub-right">
+        <a class="pub-title" href="PAPER_LINK" target="_blank">
+          Generative Refocusing: Flexible Defocus Control from a Single Image
+        </a>
+
+        <div class="pub-authors">
+          Chun-Wei Tuan Mu, Jia-Bin Huang, Yu-Lun Liu
+        </div>
+
+        <div class="pub-venue">arXiv 2025</div>
+
+        <div class="pub-links">
+          <a href="#">[Paper (PDF)]</a>
+          <a href="#">[Project page]</a>
+          <a href="#">[Code]</a>
+          <a href="#">[Demo]</a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="footer-bottom">
+    <p>&copy; 2025 EQUALS Lab</p>
+  </div>
+</footer>
+
+<!-- ================= MEDIA AUTO-DETECT SCRIPT ================= -->
+<script>
+  document.querySelectorAll('.pub-row').forEach(row => {
+    const mediaUrl = row.dataset.media;
+    const container = row.querySelector('.pub-left');
+
+    if (!mediaUrl) return;
+
+    // YouTube
+    if (mediaUrl.includes('youtube.com') || mediaUrl.includes('youtu.be')) {
+      const videoId = mediaUrl.split('v=')[1] || mediaUrl.split('/').pop();
+      container.innerHTML = `
+        <iframe class="pub-media"
+          src="https://www.youtube.com/embed/${videoId}"
+          allowfullscreen>
+        </iframe>`;
+    }
+
+    // MP4 / WebM video
+    else if (mediaUrl.match(/\.(mp4|webm)$/i)) {
+      container.innerHTML = `
+        <video class="pub-media" controls>
+          <source src="${mediaUrl}">
+        </video>`;
+    }
+
+    // Image / GIF
+    else if (mediaUrl.match(/\.(jpg|jpeg|png|gif|webp)$/i)) {
+      container.innerHTML = `
+        <img class="pub-media" src="${mediaUrl}" alt="Publication media">`;
+    }
+
+    // Fallback
+    else {
+      container.innerHTML = `
+        <img class="pub-media" src="${mediaUrl}" alt="Publication media">`;
+    }
+  });
+</script>
+
+</body>
+</html>
