@@ -17,37 +17,41 @@
                 </a>
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="#">About Us <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#awards">Awards</a></li>
-                        <li><a href="#gallery">Gallery</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="team.html">People <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#lab-director">Lab Director</a></li>
-                        <li><a href="#faculties">Faculties</a></li>
-                        <li><a href="#postdocs">Postdocs</a></li>
-                        <li><a href="#phd-students">PhD Students</a></li>
-                        <li><a href="#ms-students">MS Students</a></li>
-                        <li><a href="#alumni">Alumni</a></li>
-                        <li><a href="#visitors">Visitors</a></li>
-                    </ul>
-                </li>
-                <li><a href="#publication">Publication</a></li>
-                <li><a href="#outrich">Outrich</a></li>
-                <li class="dropdown">
-                    <a href="#">Downloads <i class="fas fa-caret-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#source-code">Source code</a></li>
-                        <li><a href="#datasets">Datasets</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="index.html" data-nav="home">Home</a></li>
+<!-- 
+            <li class="dropdown">
+                <a href="index.html#about">About Us <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+                <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+                </ul>
+            </li> -->
+            <li><a href="index.html#awards" data-nav="awards">Awards</a></li>
+            <li><a href="index.html#gallery" data-nav="gallery">Gallery</a></li>
+            <li class="dropdown">
+                <a href="team.html" data-nav="people">People <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="lab-director.html" data-nav="lab-director">Lab Director</a></li>
+                <li><a href="team.html#phd-students">PhD Students</a></li>
+                <li><a href="team.html#ms-students">MS Students</a></li>
+                <li><a href="team.html#visitors">Visitors</a></li>
+                </ul>
+            </li>
+
+            <li><a href="publication.html" data-nav="publication">Publication</a></li>
+            <li><a href="outreach.html" data-nav="outreach">Outreach</a></li>
+
+            <li class="dropdown">
+                <a href="downloads.html" data-nav="downloads">Downloads <i class="fas fa-caret-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a href="downloads.html#source-code">Source code</a></li>
+                <li><a href="downloads.html#datasets">Datasets</a></li>
+                </ul>
+            </li>
+
+            <li><a href="contact.html" data-nav="contact">Contact Us</a></li>
             </ul>
+
             <div class="hamburger">
                 <span></span>
                 <span></span>
@@ -59,8 +63,10 @@
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>intElligent QUantum And wireLess communication Systems (EQUALS) Lab.</h1>
-                <!-- <p>Advancing the frontiers of wireless communications through quantum computing and artificial intelligence</p> -->
+                <h1>intElligent QUantum And wireLess communication Systems (EQUALS) Lab</h1>
+                <p>Department of Computer Science and Engineering</p>
+                <p>Mississippi State University</p>
+                <p>Mississippi State, MS 39762</p>
             </div>
         </section>
 
@@ -71,34 +77,71 @@
                     <img src="assets/vini.jpg" alt="Lab Director">
                 </div>
                 <div class="director-info">
-                    <h2>Asst. Prof. Vini Chaudhary</h2>
-                    <p class="director-title">Lab Director - Assistant Professor of Computer Science and Engineering</p>
-                    <p class="director-bio">Vini Chaudhary received the Ph.D. degree in electrical engineering from the Indian Institute of Technology (IIT) Delhi, India, in 2021, and the M.Tech. degree in electrical engineering from IIT Kanpur, India, in 2016. She is currently an Assistant Professor with the Department of Computer Science and Engineering at Mississippi State University, USA. Prior to this, she was a Postdoctoral Research Associate at Northeastern University, USA, from 2021 to 2024. Her research interests include AI/ML/XAI-enabled technologies for wireless communications, quantum communication network protocols, quantum computing for large-scale wireless network design, multimodal data fusion with footprint reduction, and signal processing.</p>
-                    <p class="director-academics">
-                        <strong>Research areas:</strong> Quantum computing for communications, AI for wireless networks, 6G architectures.<br>
-                        <strong>Positions:</strong> Assistant Professor, Department of Computer Science and Engineering; Director, EQUALS.
-                    </p>
-                    <div class="director-links">
+                    <!-- <h2>Asst. Prof. Vini Chaudhary</h2> -->
+                    <!-- <p class="director-title">Lab Director - Assistant Professor of Computer Science and Engineering</p> -->
+                    <p class="director-bio">Vini Chaudhary is an Assistant Professor in the Department of Computer Science and Engineering at Mississippi State University, where she serves as the Director of the <strong>EQUALS </strong> Lab. She previously worked as a Postdoctoral Research Associate at Northeastern University from 2021 to 2024 under the supervision of <a href="https://genesys-lab.org/" style="text-decoration: none; font-weight: bold; color: #3498db;">Prof.Kaushik Chaudhary</a> in the GENESYS Lab. Chaudhary earned her Ph.D. in Electrical Engineering from the Indian Institute of Technology (IIT) Delhi in 2021 under <a href="https://cnrg.iitd.ac.in/index.html" style="text-decoration: none; font-weight: bold; color: #3498db;">Prof.Swades De</a> as part of the Communication Networks Research Group (IITD-CNRG), and her M.Tech. degree in Electrical Engineering from IIT Kanpur in 2016.</p>
+                    <hr style="border: none; border-top: 1px solid #ededed; margin: 24px 0;">
+                    <h3>Research Areas</h3>
+                    <ul class="research-areas">
+                        <li>Quantum Communication Networks &amp; Computing</li>
+                        <li>Wireless Communication Networks</li>
+                        <li>Cybersecurity</li>
+                        <li>Spectrum Sharing</li>
+                        <li>Cyber-Physical Systems / Smart IoT</li>
+                        <li>Applied ML, Signal Processing, &amp; Optimization in Wireless Networks</li>
+                        <li>Explainable AI in 5G/6G Wireless Communications</li>
+                        <li>Wireless Systems Design, Experiments, and Datasets</li>
+                    </ul>
+                    <p><strong>Teaching:</strong> </p>
+                    <hr style="border: none; border-top: 1px solid #ededed; margin: 24px 0;">
+                    <!-- <div class="director-links">
                         <a href="#" aria-label="Professor webpage"><i class="fas fa-globe"></i> Web</a>
                         <a href="#" aria-label="Professor publications"><i class="fas fa-file-alt"></i> Publications</a>
                         <a href="#" aria-label="Contact professor"><i class="fas fa-envelope"></i> Email</a>
-                    </div>
+                    </div> -->
                 </div>
+                  <p class="project-line"><strong> Write by Prof.Vini: Research Leadership & Large-Scale Projects: </strong> Vini Chaudhary’s research focuses on advancing intelligent and data-driven computing systems, with an emphasis on applying machine learning and optimization techniques to real-world problems. Her work spans both theoretical foundations and practical system development, and she is particularly interested in interdisciplinary research that bridges computer science with applied domains. Through her research and mentoring, she actively contributes to developing scalable, efficient, and trustworthy computational solutions.</p>
+                  <p class="project-line"><strong> Write by Prof.Vini: Awards & Professional Recognition: </strong> Prof. Chaudhary has received recognition for her scholarly contributions through competitive research grants, publications in reputable journals and conferences, and academic honors. Her work has been well received by the research community and reflects a sustained commitment to excellence in research, teaching, and student mentorship. She continues to build a strong research portfolio while supporting undergraduate and graduate students in achieving academic and professional success.</p>
+                 <p class="project-line"><strong> Write by Prof.Vini: Professional Service & Leadership in the Research Community: </strong> In addition to her research and teaching activities, Prof. Chaudhary is actively engaged in professional service. She has served as a reviewer and committee member for academic conferences and journals and has contributed to curriculum development and departmental initiatives. Through these leadership and service roles, she supports the broader academic community and helps advance research and education in her field.</p>
+                </div>
+        </section>
+
+        <!-- Lab Director Contact Section -->
+        <section class="director-contact-home">
+            <div class="container contact-inner">
+                <h2 class="contact-heading">Contact</h2>
+
+                <p class="contact-item">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <a href="mailto:vini.chaudhary@msstate.edu">
+                        vini.chaudhary@msstate.edu
+                    </a>
+                </p>
+
+                <p class="contact-item">
+                    <i class="fas fa-map-marker-alt contact-icon"></i>
+                    Department of Computer Science and Engineering, Mississippi State University
+                </p>
             </div>
         </section>
 
 
-        <section class="news-slider-section">
-            <h2>Latest News</h2>
-            <div class="news-slider-container">
-                <button class="news-arrow news-arrow-left" aria-label="Previous news">&#8592;</button>
-                <div class="news-slider"><!-- News cards will be rendered here by JS --></div>
-                <button class="news-arrow news-arrow-right" aria-label="Next news">&#8594;</button>
-            </div>
+
+
+
+        <section class="announcements-section" id="news">
+        <div class="container">
+            <h2 class="announcements-title">News[Write by Prof.Vini]</h2>
+
+            <ul class="announcements-list">
+            <!--  -->
+            </ul>
+        </div>
         </section>
 
 
-        <section class="highlights">
+
+        <!-- <section class="highlights">
             <h2>Research Highlights</h2>
             <div class="highlight-grid container">
                 <div class="highlight-card">
@@ -117,10 +160,10 @@
                     <p>AI-driven wireless optimization and control</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Support / Sponsors - logos only -->
-        <section class="support logos-only">
+        <!-- <section class="support logos-only">
             <h2>We sincerely acknowledge the generous support of the following funding agencies and sponsors:</h2>
             <div class="support-inner logos-grid container">
                 <div class="support-logo">
@@ -130,7 +173,7 @@
                     <img src="assets/msu.png" alt="msu">
                 </div>
             </div>
-        </section>
+        </section> -->
     </main>
 
     <footer>
