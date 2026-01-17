@@ -655,19 +655,27 @@ footer {
     }
 
     .nav-links {
-        display: none;
-        position: absolute;
-        top: 70px;
-        left: 0;
+        display: flex;
+        position: fixed;
+        top: 0;
         right: 0;
+        height: 100vh;
+        width: min(82vw, 320px);
         background: var(--white);
         flex-direction: column;
-        text-align: center;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        text-align: left;
+        padding: 90px 1.25rem 1.25rem;
+        box-shadow: -4px 0 18px rgba(0,0,0,0.12);
+        transform: translateX(105%);
+        transition: transform 0.3s ease;
+        overflow-y: auto;
+        z-index: 1200;
+        pointer-events: none;
     }
 
     .nav-links.active {
-        display: flex;
+        transform: translateX(0);
+        pointer-events: auto;
     }
 
     .nav-links li {
@@ -680,6 +688,12 @@ footer {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body.nav-open {
+        overflow: hidden;
     }
 }
 
