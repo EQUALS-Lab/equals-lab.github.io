@@ -664,7 +664,7 @@ footer {
         background: var(--white);
         flex-direction: column;
         text-align: left;
-        padding: 90px 1.25rem 1.25rem;
+        padding: 70px 1.25rem 1.25rem;
         box-shadow: -4px 0 18px rgba(0,0,0,0.12);
         transform: translateX(105%);
         transition: transform 0.3s ease;
