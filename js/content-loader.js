@@ -75,20 +75,22 @@ class ContentLoader {
       } else {
         // Visitors
         return `
-          <div class="member-card">
-            <div class="member-image">
+          <div class="visitor-card">
+            <div class="visitor-photo">
               <img src="${person.image}" alt="${person.name}">
             </div>
-            <div class="member-info">
-              <h3>${person.name}</h3>
-              <p class="member-title">Visiting Scholar / Researcher</p>
-              <p class="member-desc">
-                ${person.name} (${person.period}) is a ${person.title} from ${person.institution}. ${person.description} ${person.title ? 'His' : 'Her'} research interests include ${person.research}. During ${person.title ? 'his' : 'her'} visit, ${person.title ? 'he' : 'she'} will be working on ${person.project}.
-              </p>
-              <div class="member-links">
-                <a href="${person.links.website}" aria-label="Website"><i class="fas fa-globe"></i></a>
-                <a href="${person.links.linkedin}" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:${person.links.email.replace('#', '')}" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <div class="visitor-info">
+              <div class="visitor-header">
+                <h3>${person.name}</h3>
+                <span class="visitor-period">${person.period}</span>
+              </div>
+              <p class="visitor-role">${person.title}${person.institution ? `, ${person.institution}` : ''}</p>
+              <p class="visitor-desc">${person.description}</p>
+              <div class="visitor-focus">
+                <span class="visitor-label">Research:</span>
+                <span class="visitor-value">${person.research}</span>
+                <span class="visitor-label">Project:</span>
+                <span class="visitor-value">${person.project}</span>
               </div>
             </div>
           </div>
@@ -102,58 +104,465 @@ class ContentLoader {
     const data = await this.loadJSON('data/publications.json');
     if (!data) return;
 
-    const container = document.querySelector('.pub-container');
-    if (!container) return;
+    const listing = document.querySelector('#pub-listing-inner');
+    if (!listing) return;
 
-    let html = '<h1>Publications</h1>';
+    const featuredGrid = document.querySelector('#pub-featured-grid');
+    const featuredSection = document.querySelector('#pub-featured');
+    const yearSelect = document.querySelector('#pub-year');
+    const typeSelect = document.querySelector('#pub-type');
+    const tagSelect = document.querySelector('#pub-tag');
+    const searchInput = document.querySelector('#pub-search');
+    const clearBtn = document.querySelector('#pub-clear');
+    const resultCount = document.querySelector('#pub-result-count');
+    const emptyState = document.querySelector('#pub-empty');
 
-    // Journals
-    if (data.journals && data.journals.length > 0) {
-      html += `
-        <h2 style="font-size: 1.8rem; font-weight: 800; color: #0b4b8a; margin: 2rem 0 1.5rem 0; padding-bottom: 0.5rem; border-bottom: 2px solid rgba(11, 75, 138, 0.2);">
-          <i class="fas fa-book" style="color: #3498db; margin-right: 0.5rem;"></i>
-          Journal Publications
-        </h2>
-      `;
+    const pubs = [];
+    (data.journals || []).forEach(pub => pubs.push({ ...pub, type: 'Journal' }));
+    (data.conferences || []).forEach(pub => pubs.push({ ...pub, type: 'Conference' }));
 
-      data.journals.forEach(pub => {
-        html += this.renderPublication(pub);
+    pubs.forEach((pub, idx) => {
+      pub._index = idx;
+      pub._tags = this.deriveTags(pub);
+    });
+
+    const years = Array.from(new Set(pubs.map(pub => pub.year).filter(Boolean)))
+      .sort((a, b) => b - a);
+
+    if (yearSelect) {
+      yearSelect.innerHTML = '<option value="all">All years</option>' + years
+        .map(year => `<option value="${year}">${year}</option>`)
+        .join('');
+    }
+
+    if (tagSelect) {
+      const tagSet = new Set();
+      pubs.forEach(pub => pub._tags.forEach(tag => tagSet.add(tag)));
+      const tags = Array.from(tagSet).sort();
+      tagSelect.innerHTML = '<option value="all">All topics</option>' + tags
+        .map(tag => `<option value="${tag}">${tag}</option>`)
+        .join('');
+    }
+
+    const featured = pubs.filter(pub => pub.featured);
+    const featuredList = featured.length
+      ? featured
+      : pubs.slice().sort((a, b) => (b.year || 0) - (a.year || 0)).slice(0, 4);
+
+    if (featuredSection && featuredGrid) {
+      if (featuredList.length === 0) {
+        featuredSection.style.display = 'none';
+      } else {
+        featuredGrid.innerHTML = featuredList.map(pub => this.renderFeaturedCard(pub)).join('');
+      }
+    }
+
+    const applyFilters = () => {
+      const query = (searchInput && searchInput.value || '').trim().toLowerCase();
+      const year = yearSelect ? yearSelect.value : 'all';
+      const type = typeSelect ? typeSelect.value : 'all';
+      const tag = tagSelect ? tagSelect.value : 'all';
+
+      const filtered = pubs.filter(pub => {
+        if (year !== 'all' && String(pub.year) !== year) return false;
+        if (type !== 'all' && pub.type !== type) return false;
+        if (tag !== 'all' && !pub._tags.includes(tag)) return false;
+
+        if (!query) return true;
+        const haystack = [
+          pub.title,
+          pub.authors,
+          pub.venue,
+          pub._tags.join(' ')
+        ].join(' ').toLowerCase();
+        return haystack.includes(query);
+      });
+
+      this.renderPublicationListing(filtered, listing);
+
+      if (resultCount) {
+        resultCount.textContent = `${filtered.length} result${filtered.length === 1 ? '' : 's'} shown`;
+      }
+
+      if (emptyState) {
+        emptyState.hidden = filtered.length > 0;
+      }
+    };
+
+    if (searchInput) searchInput.addEventListener('input', applyFilters);
+    if (yearSelect) yearSelect.addEventListener('change', applyFilters);
+    if (typeSelect) typeSelect.addEventListener('change', applyFilters);
+    if (tagSelect) tagSelect.addEventListener('change', applyFilters);
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        if (searchInput) searchInput.value = '';
+        if (yearSelect) yearSelect.value = 'all';
+        if (typeSelect) typeSelect.value = 'all';
+        if (tagSelect) tagSelect.value = 'all';
+        applyFilters();
       });
     }
 
-    // Conferences
-    if (data.conferences && data.conferences.length > 0) {
-      html += `
-        <h2 style="font-size: 1.8rem; font-weight: 800; color: #0b4b8a; margin: 3rem 0 1.5rem 0; padding-top: 2rem; padding-bottom: 0.5rem; border-top: 2px solid rgba(11, 75, 138, 0.1); border-bottom: 2px solid rgba(11, 75, 138, 0.2);">
-          <i class="fas fa-users" style="color: #9b59b6; margin-right: 0.5rem;"></i>
-          Conference Publications
-        </h2>
-      `;
+    applyFilters();
 
-      data.conferences.forEach(pub => {
-        html += this.renderPublication(pub);
-      });
-    }
-
-    container.innerHTML = html;
+    this.setupPublicationLightbox(pubs, listing, featuredGrid);
+    this.setupCitationCopy(listing, featuredGrid);
   }
 
-  renderPublication(pub) {
-    const links = pub.links.arxiv 
-      ? `<a href="${pub.links.paper}">[Paper (PDF)]</a> <a href="${pub.links.arxiv}">[arXiv]</a>`
-      : `<a href="${pub.links.paper}">[Paper (PDF)]</a>`;
+  renderPublicationListing(items, container) {
+    const grouped = new Map();
+    items.forEach(pub => {
+      const year = pub.year || 'Other';
+      if (!grouped.has(year)) grouped.set(year, []);
+      grouped.get(year).push(pub);
+    });
+
+    const years = Array.from(grouped.keys())
+      .sort((a, b) => (b === 'Other' ? -1 : a === 'Other' ? 1 : b - a));
+
+    container.innerHTML = years.map(year => {
+      const pubs = grouped.get(year);
+      const cards = pubs.map(pub => this.renderPublicationCard(pub)).join('');
+      return `
+        <div class="pub-year-group" data-year="${year}">
+          <div class="pub-year-header">${year}</div>
+          <div class="pub-year-grid">${cards}</div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  renderPublicationCard(pub) {
+    const preview = this.getMediaPreview(pub);
+    const authorsHtml = this.formatAuthors(pub.authors, pub.boldAuthors);
+    const hasEqual = pub.authors && pub.authors.includes('*');
+    const metrics = pub.metrics || {};
+    const badges = [
+      `<span class="pub-badge">${pub.type}</span>`,
+      this.isTopVenue(pub.venue) ? '<span class="pub-badge highlight">Top Venue</span>' : ''
+    ].join('');
+
+    const tagsHtml = pub._tags.length
+      ? `<div class="pub-tags">${pub._tags.map(tag => `<span class="pub-tag">${tag}</span>`).join('')}</div>`
+      : '';
+
+    const metricsHtml = (metrics.citations || metrics.awards)
+      ? `<div class="pub-metrics">${metrics.citations ? `Citations: ${metrics.citations}. ` : ''}${metrics.awards ? `Awards: ${metrics.awards}.` : ''}</div>`
+      : '';
+
+    const actionLinks = this.buildPublicationLinks(pub);
+    const citation = this.buildCitation(pub);
 
     return `
-      <div class="pub-row">
-        <div class="pub-left"></div>
-        <div class="pub-right">
-          <a class="pub-title" href="${pub.links.paper}" target="_blank">${pub.title}</a>
-          <div class="pub-authors">${pub.authors}</div>
+      <div class="pub-card">
+        <button class="pub-media-trigger" type="button" data-pub-index="${pub._index}" aria-label="Open media">
+          <div class="pub-teaser-wrap">
+            ${preview.url ? `<img class="pub-teaser" src="${preview.url}" alt="Publication preview">` : '<div class="pub-teaser"></div>'}
+            ${preview.isVideo ? '<span class="pub-play">▶</span>' : ''}
+          </div>
+        </button>
+        <div class="pub-body">
+          <div class="pub-badges">${badges}</div>
+          <a class="pub-title" href="${pub.links.paper}" target="_blank" rel="noopener">${pub.title}</a>
+          <div class="pub-authors">${authorsHtml}</div>
+          ${hasEqual ? '<div class="pub-equal-note">* Equal contribution</div>' : ''}
           <div class="pub-venue">${pub.venue}</div>
-          <div class="pub-links">${links}</div>
+          ${tagsHtml}
+          ${metricsHtml}
+          <div class="pub-actions">
+            ${actionLinks}
+            <button class="pub-btn pub-btn-outline pub-copy" type="button" data-citation="${this.escapeHtml(citation)}"><i class="fas fa-copy"></i> Copy citation</button>
+          </div>
         </div>
       </div>
     `;
+  }
+
+  renderFeaturedCard(pub) {
+    const preview = this.getMediaPreview(pub);
+    const takeaway = pub.takeaway || (pub._tags.length ? `Focus: ${pub._tags.slice(0, 3).join(', ')}.` : '');
+    return `
+      <div class="pub-featured-card">
+        <button class="pub-featured-trigger" type="button" data-pub-index="${pub._index}" aria-label="Open media">
+          <div class="pub-featured-media">
+            ${preview.url ? `<img src="${preview.url}" alt="Publication preview">` : ''}
+            ${preview.isVideo ? '<span class="pub-play">▶</span>' : ''}
+          </div>
+        </button>
+        <a class="pub-featured-title" href="${pub.links.paper}" target="_blank" rel="noopener">${pub.title}</a>
+        ${takeaway ? `<div class="pub-featured-takeaway">${takeaway}</div>` : ''}
+        <div class="pub-actions">
+          ${this.buildPublicationLinks(pub)}
+          <button class="pub-btn pub-btn-outline pub-copy" type="button" data-citation="${this.escapeHtml(this.buildCitation(pub))}"><i class="fas fa-copy"></i> Copy citation</button>
+        </div>
+      </div>
+    `;
+  }
+
+  buildPublicationLinks(pub) {
+    const links = [];
+    if (pub.links && pub.links.paper) {
+      links.push(`<a class="pub-btn" href="${pub.links.paper}" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Paper</a>`);
+    }
+    const codeLink = (pub.links && pub.links.code) ? pub.links.code : '#';
+    const dataLink = (pub.links && pub.links.dataset) ? pub.links.dataset : '#';
+    links.push(`<a class="pub-btn pub-btn-outline" href="${codeLink}" target="_blank" rel="noopener"><i class="fas fa-code"></i> Code</a>`);
+    links.push(`<a class="pub-btn pub-btn-outline" href="${dataLink}" target="_blank" rel="noopener"><i class="fas fa-database"></i> Dataset</a>`);
+    if (pub.links && pub.links.arxiv && pub.links.arxiv !== '#') {
+      links.push(`<a class="pub-btn pub-btn-outline" href="${pub.links.arxiv}" target="_blank" rel="noopener"><i class="fas fa-book"></i> arXiv</a>`);
+    }
+    if (pub.doi) {
+      links.push(`<a class="pub-btn pub-btn-outline" href="https://doi.org/${pub.doi}" target="_blank" rel="noopener"><i class="fas fa-link"></i> DOI</a>`);
+    }
+    if (pub.bibtex || (pub.links && pub.links.bibtex)) {
+      const bibtex = pub.bibtex || pub.links.bibtex;
+      links.push(`<a class="pub-btn pub-btn-outline" href="${bibtex}" target="_blank" rel="noopener"><i class="fas fa-quote-right"></i> BibTeX</a>`);
+    }
+    return links.join('');
+  }
+
+  buildCitation(pub) {
+    const authors = pub.authors ? pub.authors.replace(/\s+/g, ' ').trim() : '';
+    const title = pub.title || '';
+    const venue = pub.venue || '';
+    const year = pub.year ? ` (${pub.year})` : '';
+    return `${authors}. ${title}. ${venue}${year}.`;
+  }
+
+  getMediaPreview(pub) {
+    const mediaUrl = pub.image || pub.gif || pub.media || pub.video;
+    if (!mediaUrl) return { url: '', isVideo: false };
+
+    const youtubeId = this.getYoutubeId(mediaUrl);
+    if (youtubeId) {
+      return { url: `https://img.youtube.com/vi/${youtubeId}/hqdefault.jpg`, isVideo: true };
+    }
+
+    const isVideo = mediaUrl.match(/\.(mp4|webm)$/i) || pub.video;
+    return { url: mediaUrl, isVideo };
+  }
+
+  getYoutubeId(url) {
+    if (!url) return '';
+    if (url.includes('youtube.com')) {
+      const match = url.match(/[?&]v=([^&]+)/);
+      return match ? match[1] : '';
+    }
+    if (url.includes('youtu.be')) {
+      return url.split('/').pop();
+    }
+    return '';
+  }
+
+  deriveTags(pub) {
+    const tags = new Set(Array.isArray(pub.tags) ? pub.tags : []);
+    const text = `${pub.title || ''} ${pub.venue || ''}`.toLowerCase();
+    const patterns = [
+      ['quantum', 'Quantum'],
+      ['wireless', 'Wireless'],
+      ['spectrum', 'Spectrum Sharing'],
+      ['cyber', 'Cybersecurity'],
+      ['privacy', 'Privacy'],
+      ['federated', 'Federated Learning'],
+      ['ml', 'Machine Learning'],
+      ['learning', 'Machine Learning'],
+      ['rf', 'RF Signals'],
+      ['iot', 'IoT'],
+      ['edge', 'Edge Computing'],
+      ['mimo', 'MIMO'],
+      ['radar', 'Radar']
+    ];
+    patterns.forEach(([key, label]) => {
+      if (text.includes(key)) tags.add(label);
+    });
+    return Array.from(tags).slice(0, 4);
+  }
+
+  isTopVenue(venue) {
+    if (!venue) return false;
+    const upper = venue.toUpperCase();
+    const keywords = ['IEEE', 'ACM', 'INFOCOM', 'ICC', 'GLOBECOM', 'MOBICOM', 'TMC', 'TWC'];
+    return keywords.some(keyword => upper.includes(keyword));
+  }
+
+  setupCitationCopy(listing, featuredGrid) {
+    const handler = (event) => {
+      const btn = event.target.closest('.pub-copy');
+      if (!btn) return;
+      const citation = btn.getAttribute('data-citation') || '';
+      if (!citation) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(citation);
+      } else {
+        const textarea = document.createElement('textarea');
+        textarea.value = citation;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+      }
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied';
+      setTimeout(() => { btn.textContent = 'Copy citation'; }, 1200);
+    };
+
+    if (listing) listing.addEventListener('click', handler);
+    if (featuredGrid) featuredGrid.addEventListener('click', handler);
+  }
+
+  setupPublicationLightbox(pubs, listing, featuredGrid) {
+    const lightbox = document.querySelector('#pub-lightbox');
+    const media = document.querySelector('#pub-lightbox-media');
+    const caption = document.querySelector('#pub-lightbox-caption');
+    const closeBtn = document.querySelector('.pub-lightbox-close');
+    const prevBtn = document.querySelector('.pub-lightbox-prev');
+    const nextBtn = document.querySelector('.pub-lightbox-next');
+    if (!lightbox || !media || !caption) return;
+
+    let indices = [];
+    let position = 0;
+    let startX = 0;
+
+    const render = () => {
+      const pub = pubs[indices[position]];
+      if (!pub) return;
+      media.innerHTML = this.renderPublicationMedia(pub);
+      caption.textContent = `${pub.title} — ${pub.venue}`;
+    };
+
+    const open = () => {
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      render();
+    };
+
+    const close = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      media.innerHTML = '';
+    };
+
+    const prev = () => {
+      if (indices.length < 2) return;
+      position = (position - 1 + indices.length) % indices.length;
+      render();
+    };
+
+    const next = () => {
+      if (indices.length < 2) return;
+      position = (position + 1) % indices.length;
+      render();
+    };
+
+    const openFromContainer = (container, target) => {
+      if (!container) return;
+      const triggers = Array.from(container.querySelectorAll('[data-pub-index]'));
+      indices = triggers.map(el => Number(el.getAttribute('data-pub-index')));
+      position = Math.max(0, indices.indexOf(Number(target.getAttribute('data-pub-index'))));
+      open();
+    };
+
+    if (listing) {
+      listing.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-pub-index]');
+        if (!trigger) return;
+        openFromContainer(listing, trigger);
+      });
+    }
+
+    if (featuredGrid) {
+      featuredGrid.addEventListener('click', (event) => {
+        const trigger = event.target.closest('[data-pub-index]');
+        if (!trigger) return;
+        openFromContainer(featuredGrid, trigger);
+      });
+    }
+
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) close();
+    });
+    if (closeBtn) closeBtn.addEventListener('click', close);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+    if (nextBtn) nextBtn.addEventListener('click', next);
+
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('open')) return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'ArrowLeft') prev();
+      if (event.key === 'ArrowRight') next();
+    });
+
+    lightbox.addEventListener('touchstart', (event) => {
+      startX = event.changedTouches[0].clientX;
+    });
+    lightbox.addEventListener('touchend', (event) => {
+      const endX = event.changedTouches[0].clientX;
+      const delta = endX - startX;
+      if (Math.abs(delta) < 40) return;
+      if (delta > 0) prev();
+      else next();
+    });
+  }
+
+  renderPublicationMedia(pub) {
+    const mediaUrl = pub.video || pub.gif || pub.image || pub.media;
+    if (!mediaUrl) return '';
+
+    if (mediaUrl.includes('youtube.com') || mediaUrl.includes('youtu.be')) {
+      const videoId = mediaUrl.split('v=')[1] || mediaUrl.split('/').pop();
+      return `
+        <iframe class="pub-media"
+          src="https://www.youtube.com/embed/${videoId}"
+          allowfullscreen>
+        </iframe>
+      `;
+    }
+
+    if (mediaUrl.match(/\.(mp4|webm)$/i) || pub.video) {
+      return `
+        <video class="pub-media" controls>
+          <source src="${mediaUrl}">
+        </video>
+      `;
+    }
+
+    if (mediaUrl.match(/\.(jpg|jpeg|png|gif|webp)$/i) || pub.image || pub.gif) {
+      return `
+        <img class="pub-media" src="${mediaUrl}" alt="Publication media">
+      `;
+    }
+
+    return `
+      <img class="pub-media" src="${mediaUrl}" alt="Publication media">
+    `;
+  }
+
+  escapeHtml(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
+  formatAuthors(authors, boldAuthors) {
+    if (!authors) return '';
+    const names = Array.isArray(boldAuthors)
+      ? boldAuthors
+      : boldAuthors
+        ? [boldAuthors]
+        : [];
+    if (names.length === 0) return authors;
+
+    let formatted = authors;
+    names.forEach(name => {
+      const escaped = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`\\b${escaped}\\b`, 'g');
+      formatted = formatted.replace(regex, `<strong>${name}</strong>`);
+    });
+    return formatted;
   }
 
   // Load and render gallery

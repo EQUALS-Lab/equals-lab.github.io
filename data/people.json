@@ -2,8 +2,8 @@
   "phd": [
     {
       "name": "Madan Baduwal",
-      "image": "assets/madanbaduwal.png",
-      "period": "Fall 2024-",
+      "image": "assets/people/madanbaduwal.jpg",
+      "period": "Spring 2025-",
       "bachelor": {
         "degree": "computer engineering",
         "university": "Tribhuvan University, Nepal",
@@ -17,90 +17,107 @@
       "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
       "research": "wireless communication, machine learning, multimodal learning, wireless optimization, and Internet of Things",
       "links": {
-        "github": "#",
-        "linkedin": "#",
-        "email": "#"
-      }
-    },
-    {
-      "name": "Parker Jones",
-      "image": "assets/placeholder.png",
-      "period": "Fall 2024-",
-      "bachelor": {
-        "degree": "electrical engineering",
-        "university": "[University Name]",
-        "year": "[Year]"
-      },
-      "master": {
-        "degree": "Master's degree",
-        "university": "[University Name]",
-        "year": "[Year]"
-      },
-      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
-      "research": "quantum communication networks, wireless communication, machine learning, signal processing, and optimization in wireless networks",
-      "links": {
-        "github": "#",
-        "linkedin": "#",
-        "email": "#"
+        "github": "https://github.com/madanbaduwal",
+        "linkedin": "https://www.linkedin.com/in/madanbaduwal",
+        "email": "mb4239@msstate.edu"
       }
     },
     {
       "name": "Sam McDevitt",
-      "image": "assets/placeholder.png",
-      "period": "Fall 2024-",
+      "image": "assets/people/Sam-McDevitt.jpeg",
+      "period": "Jan 2026-",
       "bachelor": {
-        "degree": "computer science",
-        "university": "[University Name]",
-        "year": "[Year]"
+        "degree": "Computer Engineering",
+        "university": "Mississippi State University",
+        "year": "2020"
       },
       "master": {
-        "degree": "Master's degree",
-        "university": "[University Name]",
-        "year": "[Year]"
+        "degree": "Electrical and Computer Engineering",
+        "university": "Mississippi State University",
+        "year": "2022"
       },
-      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
-      "research": "wireless communication, artificial intelligence, 5G/6G wireless systems, explainable AI, and cyber-physical systems",
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States. Previously, he served as Lead AI Engineer at AI Metrics and Senior AI Engineer at Analytical AI, delivering SBIR-funded computer vision and anomaly detection systems for U.S. government deployments.",
+      "research": "computer vision, machine learning, large language models, explainable AI, and AI system deployment",
+      "links": {
+        "github": "https://github.com/sammcdevitt",
+        "linkedin": "https://www.linkedin.com/in/sammcdevitt/",
+        "email": "sam1123@msstate.edu"
+      }
+    },
+    {
+      "name": "Parker Jones",
+      "image": "assets/people/Parker-Jones.jpeg",
+      "period": "Fall 2024-",
+      "bachelor": {
+        "degree": "B.S. in Industrial Engineering (Minor: Mathematics)",
+        "university": "Mississippi State University",
+        "year": "2012"
+      },
+      "master": {
+        "degree": "M.S. in Industrial Engineering (Concentration: Operations Research)",
+        "university": "Mississippi State University",
+        "year": "2024"
+      },
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States. He has over nine years of experience at the Mississippi State University Institute for Systems Engineering Research, developing virtual reality applications and simulations while researching systems engineering, human-computer interaction, and operations research.",
+      "research": "virtual reality, human-computer interaction, systems engineering, operations research, and simulation",
       "links": {
         "github": "#",
-        "linkedin": "#",
-        "email": "#"
+        "linkedin": "https://www.linkedin.com/in/parker-jones-03441a32/",
+        "email": "pbj19@msstate.edu"
       }
     },
     {
       "name": "Naveen Rawat",
-      "image": "assets/placeholder.png",
-      "period": "Fall 2024-",
+      "image": "assets/people/Naveen-Rawat.jpeg",
+      "period": "Spring 2026-",
       "bachelor": {
-        "degree": "electrical engineering",
-        "university": "[University Name]",
-        "year": "[Year]"
+        "degree": "B.E. in Electrical, Electronics and Communication Engineering",
+        "university": "Bangalore University",
+        "year": "2001"
       },
       "master": {
-        "degree": "Master's degree",
-        "university": "[University Name]",
-        "year": "[Year]"
+        "degree": "M.S. in Computer Science",
+        "university": "San Jose State University",
+        "year": "2020"
       },
-      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
-      "research": "wireless communication networks, cybersecurity, spectrum sharing, smart IoT systems, and applied machine learning in wireless networks",
+      "description": "He is currently pursuing his PhD degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States. He has led edge compute and autonomy programs across BrightAI, Luminar Technologies, Waymo, Tesla, and Apple, focusing on embedded systems, sensor fusion, and production-grade autonomous platforms.",
+      "research": "reinforcement learning, edge AI systems, sensor fusion, robotics, and explainable AI for autonomous systems",
       "links": {
         "github": "#",
-        "linkedin": "#",
-        "email": "#"
+        "linkedin": "https://www.linkedin.com/in/naveen-rawat-566b5816/",
+        "email": "nr750@msstate.edu"
       }
     }
   ],
   "ms": [
     {
       "name": "Wilson Patterson",
-      "image": "assets/wilson.jpg",
-      "period": "Fall 2024-",
+      "image": "assets/people/Wilson-Patterson.jpg",
+      "period": "Jun 2024-",
       "bachelor": {
-        "degree": "[Field]",
-        "university": "[University Name]",
-        "year": "[Year]"
+        "degree": "B.S. in Cyber Security & Operations",
+        "university": "Mississippi State University",
+        "year": "2024"
       },
-      "description": "He is currently pursuing his Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
-      "research": "wireless communication, machine learning, quantum algorithms for wireless optimization, and Internet of Things",
+      "description": "He is currently pursuing his M.S. degree in Cybersecurity & Operations at Mississippi State University. He serves as a Graduate Teaching Assistant and has worked as a Machine Learning Research Assistant and on AI-assisted cybersecurity research projects.",
+      "research": "cybersecurity, machine learning, AI-assisted security, and security operations",
+      "links": {
+        "github": "#",
+        "linkedin": "#",
+        "email": "#"
+      }
+    },
+    {
+      "name": "Gavin Seiler",
+      "image": "assets/people/Gavin-Seiler.jpeg",
+      "period": "Aug 2023-",
+      "bachelor": {
+        "degree": "B.S. in Cyber Security & Operations (Minor: Business Information Systems)",
+        "university": "Mississippi State University",
+        "year": "2025"
+      },
+      "description": "He is currently pursuing his M.S. degree in Cyber Security & Operations at Mississippi State University. He helped create and administer MSU’s Cybersecurity Assessments Program, leading student assessors and supporting K-12, critical infrastructure, and small business clients, and has conducted cybersecurity research and outreach through MSU’s Center for Cyber Innovation.",
+      "research": "cybersecurity, risk assessment, AI/ML for security, and quantum communication",
       "links": {
         "github": "#",
         "linkedin": "#",
@@ -109,7 +126,7 @@
     },
     {
       "name": "Jahnavi Gutta",
-      "image": "assets/placeholder.png",
+      "image": "assets/gallery/msu.png",
       "period": "Fall 2024-",
       "bachelor": {
         "degree": "[Field]",
@@ -125,25 +142,8 @@
       }
     },
     {
-      "name": "Gavin Seiler",
-      "image": "assets/placeholder.png",
-      "period": "Fall 2024-",
-      "bachelor": {
-        "degree": "[Field]",
-        "university": "[University Name]",
-        "year": "[Year]"
-      },
-      "description": "He is currently pursuing his Master's degree in Computer Science with the Department of Computer Science and Engineering, Mississippi State University, United States.",
-      "research": "wireless communication, cybersecurity, spectrum sharing, smart IoT systems, and applied machine learning",
-      "links": {
-        "github": "#",
-        "linkedin": "#",
-        "email": "#"
-      }
-    },
-    {
       "name": "Anthony Thomas",
-      "image": "assets/placeholder.png",
+      "image": "assets/gallery/msu.png",
       "period": "Fall 2024-",
       "bachelor": {
         "degree": "[Field]",
@@ -161,14 +161,14 @@
   ],
   "visitors": [
     {
-      "name": "Robert Pope",
-      "image": "assets/placeholder.png",
-      "period": "[Period]",
-      "title": "[Title]",
-      "institution": "[Institution/University]",
-      "description": "He is visiting the EQUALS Lab to collaborate on research in [Research Area].",
-      "research": "[Research Interests]",
-      "project": "[Project/Collaboration Description]",
+      "name": "Robert Pope II",
+      "image": "assets/people/Robert-Pope-II.png",
+      "period": "May 2025 - Aug 2025",
+      "title": "Undergraduate Cybersecurity Researcher",
+      "institution": "Mississippi State University",
+      "description": "Full-time, on-site in Starkville, Mississippi. Project trained me to address cybersecurity challenges in shared spectrum management such as detecting interference, anomalous signals, and ensuring data privacy. I developed and evaluated machine learning algorithms capable of identifying overlapping RF signals, applied homomorphic encryption to preserve user privacy, and conducted real-world experiments using software-defined radios to validate solutions with real RF data. We saw an overall increase of 80% efficiency in securing signals, with model accuracy averaging about 81.2% in testing.",
+      "research": "Machine Learning, Cybersecurity",
+      "project": "Privacy preservation in spectrum sharing",
       "links": {
         "website": "#",
         "linkedin": "#",
@@ -177,13 +177,13 @@
     },
     {
       "name": "Tetevi Wilson",
-      "image": "assets/placeholder.png",
-      "period": "[Period]",
-      "title": "[Title]",
-      "institution": "[Institution/University]",
-      "description": "[He/She] is visiting the EQUALS Lab to collaborate on research in [Research Area].",
-      "research": "[Research Interests]",
-      "project": "[Project/Collaboration Description]",
+      "image": "assets/people/Tetevi-Wilson.jpeg",
+      "period": "May 2025 - Aug 2025",
+      "title": "Research Intern",
+      "institution": "Mississippi State University",
+      "description": "Internship, on-site in Starkville, Mississippi. Researched Differential Privacy (DP) and Federated Learning (FL) for secure wireless spectrum sharing, focusing on spectrogram-based CNNs in PyTorch. Built and evaluated DP-only and DP+FL models using Opacus, analyzing accuracy, precision, recall, and F1-score to assess privacy tradeoffs in a ResNet-50 architecture. Parsed and visualized training logs using TensorBoard and automated CSV extraction to support experiment tracking and a research poster presentation.",
+      "research": "Convolutional Neural Networks (CNN), Network Security Implementation",
+      "project": "Privacy-preserving wireless signals",
       "links": {
         "website": "#",
         "linkedin": "#",

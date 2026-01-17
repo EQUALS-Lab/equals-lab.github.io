@@ -6,24 +6,24 @@
       "color": "#3498db",
       "items": [
         {
-          "title": "Lab Meeting",
-          "description": "Team discussion on research progress",
-          "image": "assets/banner3.jpg"
+          "title": "Undergraduate Research Symposium 2025",
+          "description": "Privacy-preservation deep learning architecture to detect jamming behavior from cellular spectrogram signals. ",
+          "image": "assets/gallery/Research-Experiences-for-Undergraduates-2025-1.jpeg"
         },
         {
           "title": "Research Presentation",
           "description": "Presenting latest findings",
-          "image": "assets/banner2.jpg"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "Conference Participation",
           "description": "Attending IEEE conferences",
-          "image": "assets/banner.png"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "NSF ExLENT Award",
           "description": "Celebrating NSF ExLENT award",
-          "image": "assets/nsf-ExLENET.jpeg"
+          "image": "assets/gallery/msu.png"
         }
       ]
     },
@@ -35,22 +35,22 @@
         {
           "title": "Lab Director",
           "description": "Prof. Vini Chaudhary",
-          "image": "assets/vini.jpg"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "PhD Student",
           "description": "Madan Baduwal",
-          "image": "assets/madanbaduwal.png"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "MS Student",
           "description": "Wilson Patterson",
-          "image": "assets/wilson.jpg"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "Collaborator",
           "description": "Research collaborator",
-          "image": "assets/nishapilai.jpg"
+          "image": "assets/gallery/msu.png"
         }
       ]
     },
@@ -62,17 +62,17 @@
         {
           "title": "Mississippi State University",
           "description": "Our home institution",
-          "image": "assets/msu.png"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "Research Lab",
           "description": "EQUALS Lab workspace",
-          "image": "assets/banner2.jpg"
+          "image": "assets/gallery/msu.png"
         },
         {
           "title": "NSF Support",
           "description": "NSF funding acknowledgment",
-          "image": "assets/ns2.jpg"
+          "image": "assets/gallery/msu.png"
         }
       ]
     }
