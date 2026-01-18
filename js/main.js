@@ -151,5 +151,86 @@ document.addEventListener('DOMContentLoaded', function () {
     else header.classList.remove('header-small');
   });
 
+  // -----------------------------
+  // Hero background carousel (home page)
+  // -----------------------------
+  const hero = document.querySelector('.hero[data-hero-images]');
+  if (hero) {
+    const rawImages = hero.getAttribute('data-hero-images') || '';
+    const images = rawImages.split(',').map(s => s.trim()).filter(Boolean);
+    const dotsWrap = hero.querySelector('.hero-dots');
+    const prevBtn = hero.querySelector('.hero-control[data-direction="prev"]');
+    const nextBtn = hero.querySelector('.hero-control[data-direction="next"]');
+    let current = 0;
+    let timerId = null;
+
+    function setSlide(index) {
+      if (!images.length) return;
+      current = (index + images.length) % images.length;
+      const imageUrl = images[current];
+      hero.style.setProperty('--hero-image', `url('${imageUrl}')`);
+      hero.style.backgroundImage = `linear-gradient(rgba(12, 22, 38, 0.45), rgba(12, 22, 38, 0.22)), url('${imageUrl}')`;
+      if (dotsWrap) {
+        Array.from(dotsWrap.children).forEach((dot, idx) => {
+          dot.classList.toggle('active', idx === current);
+          dot.setAttribute('aria-selected', idx === current ? 'true' : 'false');
+        });
+      }
+    }
+
+    function startAuto() {
+      if (images.length < 2) return;
+      timerId = window.setInterval(() => setSlide(current + 1), 6000);
+    }
+
+    function stopAuto() {
+      if (timerId) window.clearInterval(timerId);
+      timerId = null;
+    }
+
+    function restartAuto() {
+      stopAuto();
+      startAuto();
+    }
+
+    if (dotsWrap) {
+      dotsWrap.innerHTML = '';
+      images.forEach((_, idx) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.className = 'hero-dot';
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-label', `Slide ${idx + 1}`);
+        dot.addEventListener('click', () => {
+          setSlide(idx);
+          restartAuto();
+        });
+        dotsWrap.appendChild(dot);
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        setSlide(current - 1);
+        restartAuto();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        setSlide(current + 1);
+        restartAuto();
+      });
+    }
+
+    hero.addEventListener('mouseenter', stopAuto);
+    hero.addEventListener('mouseleave', startAuto);
+    hero.addEventListener('focusin', stopAuto);
+    hero.addEventListener('focusout', startAuto);
+
+    setSlide(0);
+    startAuto();
+  }
+
   // News/Announcements are now loaded via content-loader.js
 });

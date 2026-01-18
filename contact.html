@@ -60,74 +60,78 @@
     </header>
 
     <main>
-        <section class="contact-header" style="text-align: center; margin: 50px 0;">
+        <section class="contact-header">
             <h1>Contact Us</h1>
             <p>Get in touch with the EQUALS team</p>
         </section>
 
         <section class="contact-content">
-            <div class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <p>665 George Perry St, Mississippi State, MS 39762</p>
-                    <p>Hall: 331 Butler Hall</p>
-                </div>
+            <div class="contact-map">
+                <div class="contact-info">
+                    <div class="info-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>665 George Perry St, Mississippi State, MS 39762</p>
+                        <p>Hall: 331 Butler Hall</p>
+                    </div>
 
-                <div class="info-card">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>Email: vchaudhary@cse.msstate.edu</p>
-                </div>
+                    <div class="info-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>Email: vchaudhary@cse.msstate.edu</p>
+                    </div>
 
-                <div class="info-card">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <p>P 662.325.2079</p>
+                    <div class="info-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>P 662.325.2079</p>
+                    </div>
+                </div>
+                <div class="map-header">
+                    <h2>Find Us</h2>
+                    <p>Directions to 331 Butler Hall</p>
+                </div>
+                <div class="map-container">
+                    <iframe
+                        title="EQUALS Lab Location"
+                        src="https://www.google.com/maps?q=665%20George%20Perry%20St%2C%20Mississippi%20State%2C%20MS%2039762&output=embed"
+                        width="100%"
+                        height="260"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
 
-            <div class="contact-form-container">
-                <h2>Send us a Message</h2>
-                <form id="contact-form" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
+            <div class="contact-left">
+                <div class="contact-form-container">
+                    <h2>Send us a Message</h2>
+                    <form id="contact-form" class="contact-form">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
 
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                    </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
 
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </section>
-
-        <section class="map-section">
-            <h2>Find Us</h2>
-            <div class="map-container">
-                <iframe
-                    title="EQUALS Lab Location"
-                    src="https://www.google.com/maps?q=665%20George%20Perry%20St%2C%20Mississippi%20State%2C%20MS%2039762&output=embed"
-                    width="100%"
-                    height="420"
-                    style="border:0;"
-                    allowfullscreen=""
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade">
-                </iframe>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>

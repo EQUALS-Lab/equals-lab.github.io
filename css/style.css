@@ -1,11 +1,15 @@
 /* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
 :root {
-    --primary-color: #2c3e50;
-    --secondary-color: #3498db;
-    --accent-color: #e74c3c;
-    --text-color: #333;
-    --light-bg: #f5f6fa;
+    --primary-color: #0B1F3B;
+    --secondary-color: #2B6CB0;
+    --accent-color: #00B4D8;
+    --text-color: #1F2937;
+    --light-bg: #F7FAFC;
     --white: #ffffff;
+    --font-body: "Source Sans 3", "Segoe UI", sans-serif;
+    --font-heading: "Libre Baskerville", "Times New Roman", serif;
 }
 
 * {
@@ -15,9 +19,14 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-body);
+    line-height: 1.65;
     color: var(--text-color);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.01em;
 }
 
 img {
@@ -148,15 +157,16 @@ main {
 
 /* Hero Section */
 .hero {
+    --hero-image: url('../assets/gallery/banner3.jpg');
     /* adjust overlay: slightly darker to reduce banner brightness while keeping text readable */
-    background: linear-gradient(rgba(12, 22, 38, 0.45), rgba(12, 22, 38, 0.22)), url('../assets/gallery/banner3.jpg');
+    background-image: linear-gradient(rgba(12, 22, 38, 0.45), rgba(12, 22, 38, 0.22)), var(--hero-image);
     background-size: cover;
-    background-position: center center;
+    background-position: center 12%;
     background-blend-mode: overlay;
     color: var(--white);
-    padding: 4rem 2rem;
+    padding: 1rem 2rem;
     text-align: center;
-    min-height: 360px;
+    min-height: 480px;
     display: flex;
     align-items: center;
     position: relative;
@@ -185,9 +195,60 @@ main {
     margin-bottom: 1rem;
 }
 
+.hero-carousel-controls {
+    position: absolute;
+    inset: auto 2rem 1.5rem 2rem;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1rem;
+    z-index: 3;
+}
+
+.hero-control {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.6);
+    background: rgba(15, 23, 42, 0.45);
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.hero-control:hover {
+    background: rgba(15, 23, 42, 0.7);
+    transform: translateY(-1px);
+}
+
+.hero-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hero-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.7);
+    background: rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.hero-dot.active {
+    background: #fff;
+    transform: scale(1.2);
+}
+
 /* Sections */
 section {
-    padding: 4rem 2rem;
+    padding: 3rem 1.5rem;
 }
 
 /* Announcements / News */
@@ -549,7 +610,18 @@ section h2 {
     gap: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 1.5rem;
+}
+
+.contact-left {
+    display: grid;
+    gap: 2rem;
+}
+
+.contact-map {
+    display: grid;
+    align-content: start;
+    gap: 0.75rem;
 }
 
 .contact-form {
@@ -588,6 +660,60 @@ section h2 {
 
 .submit-btn:hover {
     background-color: #2980b9;
+}
+
+.contact-header {
+    text-align: center;
+    margin: 1.5rem 0 1rem;
+}
+
+.map-section {
+    padding: 1.5rem 0 2rem;
+    background: #ffffff;
+}
+
+.map-header {
+    max-width: 1200px;
+    margin: 0 auto 0.75rem;
+    padding: 0 1rem;
+    text-align: left;
+}
+
+.map-header h2 {
+    text-align: left;
+    margin-bottom: 0.25rem;
+}
+
+.map-header p {
+    color: #6b7c93;
+    margin: 0;
+}
+
+.map-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 260px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(44,62,80,0.12);
+    display: block;
+}
+
+.contact-map .map-header,
+.contact-map .map-container {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 900px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Footer */
@@ -917,8 +1043,8 @@ footer {
 
 /* Hero adjustments for various devices */
 .hero {
-    padding: 4rem 2rem;
-    min-height: 60vh; /* use viewport units for better scaling */
+    padding: 1rem 2rem;
+    min-height: 480px;
 }
 
 .hero-content {
@@ -1005,6 +1131,10 @@ section {
     .hero-content h1 { font-size: 1.6rem; }
     .hero p { font-size: 0.95rem; }
     .nav-links li a { padding: 0.75rem 1rem; display: block; }
+    .hero-carousel-controls {
+        inset: auto 1rem 1rem 1rem;
+        grid-template-columns: auto 1fr auto;
+    }
 
     /* Contact and support spacing */
     .contact-content { padding: 1rem; }
